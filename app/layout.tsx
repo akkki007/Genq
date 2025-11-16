@@ -9,9 +9,9 @@ const onest = Onest({
 });
 
 export const metadata: Metadata = {
-  title: "MindSpace - template built with shadcndesign.com",
+  title: "Genq - Global BPO Solutions for Sales & Lead Generation",
   description:
-    "MindSpace is a modern and clean SaaS shadcn/ui template built with Pro Blocks",
+    "Genq is a global BPO company that provides sales and lead generation solutions to businesses around the world.",
     generator: 'v0.app'
 };
 

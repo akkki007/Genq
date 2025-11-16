@@ -1,3 +1,4 @@
+"use client"
 import { LpNavbar1 } from "@/components/pro-blocks/landing-page/lp-navbars/lp-navbar-1";
 import { HeroSection2 } from "@/components/pro-blocks/landing-page/hero-sections/hero-section-2";
 import { LogoSection10 } from "@/components/pro-blocks/landing-page/logo-sections/logo-section-7";
