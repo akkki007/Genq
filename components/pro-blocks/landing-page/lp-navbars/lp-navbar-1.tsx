@@ -8,6 +8,7 @@ import Image from "next/image";
 
 const MENU_ITEMS = [
   { label: "About", href: "/about" },
+  { label: "Services", href: "/services" },
   { label: "Our projects", href: "/projects" },
 ] as const;
 

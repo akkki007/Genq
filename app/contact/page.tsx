@@ -1,14 +1,53 @@
-"use client"
+"use client";
+import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { LpNavbar1 } from "@/components/pro-blocks/landing-page/lp-navbars/lp-navbar-1";
 
+type FormStatus = "idle" | "submitting" | "success" | "error";
+
 const ContactPage = () => {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const [status, setStatus] = useState<FormStatus>("idle");
+  const [serverMessage, setServerMessage] = useState("");
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const payload = Object.fromEntries(formData.entries());
+
+    setStatus("submitting");
+    setServerMessage("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        const error = await response.json().catch(() => null);
+        throw new Error(error?.error ?? "Unable to submit the form.");
+      }
+
+      setStatus("success");
+      setServerMessage("Thanks! We’ll be in touch within one business day.");
+      form.reset();
+    } catch (error) {
+      console.error("[CONTACT_FORM_SUBMIT_ERROR]", error);
+      setStatus("error");
+      setServerMessage(
+        "Something went wrong. Please try again or email us directly at info@genq.co.in.",
+      );
+    }
   };
+
+  const isSubmitting = status === "submitting";
 
   return (
     <main className="bg-background">
@@ -191,16 +230,25 @@ const ContactPage = () => {
               <div className="flex flex-wrap items-center gap-3">
                 <Button
                   type="submit"
+                  disabled={isSubmitting}
                   className="px-5 py-2.5"
                   aria-label="Submit contact form"
                 >
-                  Submit request
+                  {isSubmitting ? "Sending..." : "Submit request"}
                 </Button>
                 <p className="text-xs text-muted-foreground">
                   Prefer email? Reach us at{" "}
-                  <span className="font-medium text-foreground">hello@genq.example</span>
+                  <span className="font-medium text-foreground">info@genq.co.in</span>
                 </p>
               </div>
+              {serverMessage && (
+                <p
+                  className={`text-xs ${status === "error" ? "text-destructive" : "text-emerald-600"}`}
+                  aria-live="polite"
+                >
+                  {serverMessage}
+                </p>
+              )}
             </form>
 
             <aside className="space-y-6 rounded-2xl border bg-card p-6 shadow-sm">
