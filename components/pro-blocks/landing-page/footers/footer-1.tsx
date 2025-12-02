@@ -3,6 +3,7 @@
 import { Logo } from "@/components/pro-blocks/logo";
 import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
+import { GoogleMapsEmbed } from "@/components/google-maps-embed";
 
 export function Footer1() {
   return (
@@ -62,6 +63,25 @@ export function Footer1() {
               Pricing
             </Link>
           </nav>
+        </div>
+
+        {/* Section Divider */}
+        <Separator role="presentation" />
+
+        {/* Office Location Section */}
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="space-y-4">
+            <h3 className="text-sm font-semibold text-foreground">India Office</h3>
+            <p className="text-sm text-muted-foreground">
+              Dhole patel rd near ruby hall opposite kotak mahindra bank choice argade D building office no 34, Pune 411001
+            </p>
+            <p className="text-sm text-muted-foreground">
+              Email: <a href="mailto:info@genq.co.in" className="text-primary hover:underline">info@genq.co.in</a>
+            </p>
+          </div>
+          <div className="md:col-span-2 lg:col-span-2">
+            <GoogleMapsEmbed height="250px" />
+          </div>
         </div>
 
         {/* Section Divider */}

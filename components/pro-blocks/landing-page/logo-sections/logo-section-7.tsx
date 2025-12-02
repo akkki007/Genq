@@ -1,40 +1,49 @@
 "use client";
 
-import { PlaceholderLogo } from "@/components/pro-blocks/placeholder-logo"; /* Make sure to import your logos */
 import { Tagline } from "@/components/pro-blocks/landing-page/tagline";
+import {
+  MicrosoftLogo,
+  GoogleLogo,
+  AmazonLogo,
+  IBMLogo,
+  AccentureLogo,
+  OracleLogo,
+  SAPLogo,
+  SalesforceLogo,
+} from "@/components/mnc-logos";
 
 const logosData = [
   {
     id: 1,
-    component: PlaceholderLogo,
+    component: MicrosoftLogo,
   },
   {
     id: 2,
-    component: PlaceholderLogo,
+    component: GoogleLogo,
   },
   {
     id: 3,
-    component: PlaceholderLogo,
+    component: AmazonLogo,
   },
   {
     id: 4,
-    component: PlaceholderLogo,
+    component: IBMLogo,
   },
   {
     id: 5,
-    component: PlaceholderLogo,
+    component: AccentureLogo,
   },
   {
     id: 6,
-    component: PlaceholderLogo,
+    component: OracleLogo,
   },
   {
     id: 7,
-    component: PlaceholderLogo,
+    component: SAPLogo,
   },
   {
     id: 8,
-    component: PlaceholderLogo,
+    component: SalesforceLogo,
   },
 ];
 

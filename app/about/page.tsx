@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { LpNavbar1 } from "@/components/pro-blocks/landing-page/lp-navbars/lp-navbar-1";
+import { GoogleMapsEmbed } from "@/components/google-maps-embed";
 
 const AboutPage = () => {
   return (
@@ -183,6 +184,16 @@ const AboutPage = () => {
                 </p>
               </div>
             </div>
+          </div>
+
+          <div className="mt-12 space-y-4">
+            <div className="space-y-3 text-center">
+              <h3 className="text-lg font-semibold text-foreground">Our India Office</h3>
+              <p className="text-sm text-muted-foreground">
+                Dhole patel rd near ruby hall opposite kotak mahindra bank choice argade D building office no 34, Pune 411001
+              </p>
+            </div>
+            <GoogleMapsEmbed height="400px" className="mx-auto max-w-4xl" />
           </div>
         </div>
       </section>

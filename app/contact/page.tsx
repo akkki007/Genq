@@ -5,6 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { LpNavbar1 } from "@/components/pro-blocks/landing-page/lp-navbars/lp-navbar-1";
+import { GoogleMapsEmbed } from "@/components/google-maps-embed";
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
 
@@ -260,6 +261,15 @@ const ContactPage = () => {
               <div className="space-y-4 text-sm">
                 <div className="rounded-xl border bg-background p-4">
                   <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                    India Office
+                  </p>
+                  <p className="mt-1 font-medium text-foreground">Pune, India</p>
+                  <p className="mt-1 text-xs text-muted-foreground">
+                    Dhole patel rd near ruby hall opposite kotak mahindra bank choice argade D building office no 34, Pune 411001
+                  </p>
+                </div>
+                <div className="rounded-xl border bg-background p-4">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
                     UK team
                   </p>
                   <p className="mt-1 font-medium text-foreground">London, UK</p>
@@ -277,14 +287,11 @@ const ContactPage = () => {
                   </p>
                 </div>
               </div>
-              <div className="relative h-40 overflow-hidden rounded-xl">
-                <Image
-                  src="/placeholder.svg"
-                  alt="Genq global collaboration illustration"
-                  width={480}
-                  height={260}
-                  className="h-full w-full object-cover"
-                />
+              <div className="space-y-2">
+                <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                  Our Pune Office
+                </p>
+                <GoogleMapsEmbed height="300px" />
               </div>
             </aside>
           </div>
